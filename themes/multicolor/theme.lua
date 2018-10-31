@@ -164,12 +164,12 @@ local cpu = lain.widget.cpu({
 })
 
 -- Coretemp
-local tempicon = wibox.widget.imagebox(theme.widget_temp)
-local temp = lain.widget.temp({
-    settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#f1af5f", coretemp_now .. "°C "))
-    end
-})
+-- local tempicon = wibox.widget.imagebox(theme.widget_temp)
+-- local temp = lain.widget.temp({
+--     settings = function()
+--         widget:set_markup(markup.fontfg(theme.font, "#f1af5f", coretemp_now .. "°C "))
+--     end
+-- })
 
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_batt)
@@ -315,8 +315,8 @@ function theme.at_screen_connect(s)
             --theme.fs.widget,
             weathericon,
             theme.weather.widget,
-            tempicon,
-            temp.widget,
+            --tempicon,
+            --temp.widget,
             baticon,
             bat.widget,
             clockicon,
