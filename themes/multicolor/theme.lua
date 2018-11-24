@@ -9,7 +9,7 @@ local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
-local gpmdp = require("gpmdp")
+-- local gpmdp = require("gpmdp")
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -183,7 +183,8 @@ local bat = lain.widget.bat({
         end
 
         widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
-    end
+    end,
+    battery = "sbs-20-000b"
 })
 
 -- ALSA volume
@@ -252,7 +253,7 @@ theme.mpd = lain.widget.mpd({
 })
 
 
-theme.gpmdp = gpmdp.widget
+-- theme.gpmdp = gpmdp.widget
 
 function theme.at_screen_connect(s)
     -- Quake application
@@ -295,15 +296,14 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             --s.mylayoutbox,
             s.mytaglist,
-            s.mypromptbox,
+            s.mypromptbox
             --mpdicon,
             --theme.mpd.widget,
         },
-        --s.mytasklist, -- Middle widget
-        nil,
+        s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            theme.gpmdp,
+            -- theme.gpmdp,
             wibox.widget.systray(),
             --mailicon,
             --theme.mail.widget,
@@ -331,20 +331,20 @@ function theme.at_screen_connect(s)
     }
 
     -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
+    -- s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the bottom wibox
-    s.mybottomwibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            s.mylayoutbox,
-        },
-    }
+    -- s.mybottomwibox:setup {
+    --     layout = wibox.layout.align.horizontal,
+    --     { -- Left widgets
+    --         layout = wibox.layout.fixed.horizontal,
+    --     },
+    --     s.mytasklist, -- Middle widget
+    --     { -- Right widgets
+    --         layout = wibox.layout.fixed.horizontal,
+    --         s.mylayoutbox,
+    --     },
+    -- }
 end
 
 return theme
