@@ -9,6 +9,7 @@ local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
+local gpmdp = require("gpmdp")
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -250,6 +251,9 @@ theme.mpd = lain.widget.mpd({
     end
 })
 
+
+theme.gpmdp = gpmdp.widget
+
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
@@ -291,13 +295,14 @@ function theme.at_screen_connect(s)
             --s.mylayoutbox,
             s.mytaglist,
             s.mypromptbox,
-            mpdicon,
-            theme.mpd.widget,
+            --mpdicon,
+            --theme.mpd.widget,
         },
         --s.mytasklist, -- Middle widget
         nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            theme.gpmdp,
             wibox.widget.systray(),
             --mailicon,
             --theme.mail.widget,
