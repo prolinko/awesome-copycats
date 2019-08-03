@@ -10,6 +10,7 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 -- local gpmdp = require("gpmdp")
+local dpi   = require("beautiful.xresources").apply_dpi
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -28,13 +29,13 @@ theme.fg_normal                                 = "#aaaaaa"
 theme.fg_focus                                  = "#ff8c00"
 theme.fg_urgent                                 = "#af1d18"
 theme.fg_minimize                               = "#ffffff"
-theme.border_width                              = 1
+theme.border_width                              = dpi(1)
 theme.border_normal                             = "#1c2022"
 theme.border_focus                              = "#606060"
 theme.border_marked                             = "#3ca4d8"
 theme.menu_border_width                         = 0
-theme.menu_width                                = 220
-theme.menu_height                               = 35
+theme.menu_width                                = dpi(220)
+theme.menu_height                               = dpi(35)
 theme.menu_submenu_icon                         = theme.confdir .. "/icons/submenu.png"
 theme.menu_fg_normal                            = "#aaaaaa"
 theme.menu_fg_focus                             = "#ff8c00"
@@ -288,7 +289,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 30, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(30), bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -333,7 +334,7 @@ function theme.at_screen_connect(s)
     }
 
     -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = dpi(20), bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the bottom wibox
     s.mybottomwibox:setup {
