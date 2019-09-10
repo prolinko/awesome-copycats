@@ -18,10 +18,10 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                                 = theme.confdir .. "/wall.png"
--- theme.font                                      = "xos4 Terminus 15"
--- title_font                                      = "xos4 Terminus 18"
-theme.font                                      = "Misc Tamsyn 15"
-title_font                                      = "Misc Tamsyn 15"
+theme.font                                      = "Terminus 10"
+title_font                                      = "Terminus 12"
+-- theme.font                                      = "Misc Tamsyn 15"
+-- title_font                                      = "Misc Tamsyn 15"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
@@ -117,7 +117,7 @@ theme.cal = lain.widget.cal({
 -- Weather
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
-    city_id = 4747845, -- placeholder (London)
+    city_id = 4928096, -- placeholder (London)
     notification_preset = { font = title_font, fg = theme.fg_normal },
     weather_na_markup = markup.fontfg(title_font, "#eca4c4", "N/A "),
     settings = function()
@@ -131,7 +131,7 @@ theme.weather = lain.widget.weather({
 --[[ commented because it needs Gio/Glib >= 2.54
 local fsicon = wibox.widget.imagebox(theme.widget_fs)
 theme.fs = lain.widget.fs({
-    notification_preset = { font = "xos4 Terminus 10", fg = theme.fg_normal },
+    notification_preset = { font = "Terminus 10", fg = theme.fg_normal },
     settings  = function()
         widget:set_markup(markup.fontfg(theme.font, "#80d9d8", string.format("%.1f", fs_now["/"].used) .. "% "))
     end
