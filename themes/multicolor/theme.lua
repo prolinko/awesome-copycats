@@ -117,7 +117,7 @@ theme.cal = lain.widget.cal({
 -- Weather
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
-    city_id = 4747845, -- placeholder (London)
+    city_id = 4928096, -- placeholder (London)
     notification_preset = { font = title_font, fg = theme.fg_normal },
     weather_na_markup = markup.fontfg(title_font, "#eca4c4", "N/A "),
     settings = function()
